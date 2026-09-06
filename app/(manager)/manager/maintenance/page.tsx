@@ -129,7 +129,7 @@ function MaintenanceTable({
                 </td>
                 <td className="px-4 py-3 max-w-xs">
                   <Link
-                    href={`/maintenance/${req.id}`}
+                    href={`/manager/maintenance/${req.id}`}
                     className="font-medium text-foreground hover:text-primary hover:underline line-clamp-1"
                   >
                     {req.title}
@@ -161,7 +161,7 @@ function MaintenanceTable({
                 </td>
                 <td className="px-4 py-3">
                   <div className="flex items-center justify-end gap-1">
-                    <Link href={`/maintenance/${req.id}`}>
+                    <Link href={`/manager/maintenance/${req.id}`}>
                       <Button variant="ghost" size="xs">View</Button>
                     </Link>
                     {!req.vendorId && (
@@ -263,7 +263,7 @@ export default async function MaintenancePage({ searchParams }: Props) {
         title="Maintenance"
         description="Track and manage maintenance requests across all properties."
       >
-        <Link href="/maintenance/new">
+        <Link href="/manager/maintenance/new">
           <Button>
             <Plus className="size-4" />
             New Request
@@ -280,7 +280,7 @@ export default async function MaintenancePage({ searchParams }: Props) {
           {TABS.map(({ label, value }) => (
             <Link
               key={value}
-              href={`/maintenance?tab=${value}&view=${view}`}
+              href={`/manager/maintenance?tab=${value}&view=${view}`}
               className={cn(
                 'px-3 py-1.5 rounded-lg text-sm font-medium transition-colors',
                 tab === value

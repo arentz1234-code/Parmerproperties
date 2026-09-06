@@ -42,7 +42,7 @@ export default async function ApplicationsPage({
         {TABS.map((tab) => (
           <Link
             key={tab.value}
-            href={tab.value ? `/applications?status=${tab.value}` : '/applications'}
+            href={tab.value ? `/manager/applications?status=${tab.value}` : '/manager/applications'}
             className={cn(
               'px-4 py-2 text-sm font-medium rounded-t-md transition-colors border-b-2',
               (status ?? '') === tab.value
@@ -109,7 +109,7 @@ export default async function ApplicationsPage({
                     <td className="px-4 py-3 whitespace-nowrap">
                       <div className="flex items-center gap-1">
                         <Link
-                          href={`/applications/${app.id}`}
+                          href={`/manager/applications/${app.id}`}
                           className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-gray-600 hover:bg-gray-100 transition-colors"
                         >
                           <Eye size={13} />
@@ -118,21 +118,21 @@ export default async function ApplicationsPage({
                         {app.status === ApplicationStatus.PENDING && (
                           <>
                             <Link
-                              href={`/applications/${app.id}?action=approve`}
+                              href={`/manager/applications/${app.id}?action=approve`}
                               className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-green-700 hover:bg-green-50 transition-colors"
                             >
                               <CheckCircle size={13} />
                               Approve
                             </Link>
                             <Link
-                              href={`/applications/${app.id}?action=deny`}
+                              href={`/manager/applications/${app.id}?action=deny`}
                               className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-red-700 hover:bg-red-50 transition-colors"
                             >
                               <XCircle size={13} />
                               Deny
                             </Link>
                             <Link
-                              href={`/applications/${app.id}?action=withdraw`}
+                              href={`/manager/applications/${app.id}?action=withdraw`}
                               className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium text-gray-500 hover:bg-gray-100 transition-colors"
                             >
                               <MinusCircle size={13} />

@@ -99,7 +99,7 @@ export default async function InspectionsPage() {
         title="Inspections"
         description="Schedule and track property inspections across all units."
       >
-        <Link href="/inspections/new">
+        <Link href="/manager/inspections/new">
           <Button>
             <Plus className="size-4" />
             Schedule Inspection
@@ -115,7 +115,7 @@ export default async function InspectionsPage() {
           title="No inspections yet"
           description="Schedule your first inspection to get started."
           action={
-            <Link href="/inspections/new">
+            <Link href="/manager/inspections/new">
               <Button>
                 <Plus className="size-4" />
                 Schedule Inspection
@@ -161,11 +161,11 @@ export default async function InspectionsPage() {
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center justify-end gap-1">
-                        <Link href={`/inspections/${insp.id}`}>
+                        <Link href={`/manager/inspections/${insp.id}`}>
                           <Button variant="ghost" size="xs">View</Button>
                         </Link>
                         {insp.status === InspectionStatus.SCHEDULED && (
-                          <Link href={`/inspections/${insp.id}`}>
+                          <Link href={`/manager/inspections/${insp.id}`}>
                             <Button variant="ghost" size="xs">Start</Button>
                           </Link>
                         )}

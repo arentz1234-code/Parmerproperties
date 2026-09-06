@@ -204,7 +204,7 @@ export default async function MaintenanceDetailPage({ params, searchParams }: Pr
       {/* Header */}
       <div className="mb-6">
         <Link
-          href="/maintenance"
+          href="/manager/maintenance"
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground mb-4 transition-colors"
         >
           <ArrowLeft className="size-4" />
@@ -240,7 +240,7 @@ export default async function MaintenanceDetailPage({ params, searchParams }: Pr
               />
             )}
             {isResolvable && (
-              <Link href={`/maintenance/${req.id}?action=resolve`}>
+              <Link href={`/manager/maintenance/${req.id}?action=resolve`}>
                 <Button variant="outline">
                   <CheckCircle2 className="size-4" />
                   Resolve

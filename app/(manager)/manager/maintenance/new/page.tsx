@@ -24,7 +24,7 @@ export default async function NewMaintenanceRequestPage() {
   return (
     <div>
       <PageHeader title="New Maintenance Request">
-        <Link href="/maintenance">
+        <Link href="/manager/maintenance">
           <Button variant="outline">
             <ArrowLeft className="size-4" />
             Back

@@ -65,7 +65,7 @@ export default function NewLeadPage() {
         status: 'NEW',
       })
       if (result.success) {
-        router.push('/leads')
+        router.push('/manager/leads')
       } else {
         setError('Failed to create lead. Please try again.')
       }
@@ -80,7 +80,7 @@ export default function NewLeadPage() {
     <div className="max-w-2xl">
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
-        <Link href="/leads" className="text-gray-400 hover:text-gray-600 transition-colors">
+        <Link href="/manager/leads" className="text-gray-400 hover:text-gray-600 transition-colors">
           <ArrowLeft size={18} />
         </Link>
         <h1 className="text-2xl font-bold text-gray-900">Add New Lead</h1>
@@ -185,7 +185,7 @@ export default function NewLeadPage() {
             )}
 
             <div className="flex items-center gap-3 pt-2">
-              <Link href="/leads">
+              <Link href="/manager/leads">
                 <Button type="button" variant="outline">
                   Cancel
                 </Button>

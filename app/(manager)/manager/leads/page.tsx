@@ -45,7 +45,7 @@ export default async function LeadsPage({
         <div className="flex items-center gap-2">
           <div className="flex rounded-lg border border-gray-200 overflow-hidden">
             <Link
-              href="/leads"
+              href="/manager/leads"
               className={cn(
                 'px-3 py-1.5 text-sm transition-colors',
                 !isTable ? 'bg-white text-gray-900 font-medium' : 'bg-gray-50 text-gray-500 hover:bg-white',
@@ -55,7 +55,7 @@ export default async function LeadsPage({
               Board
             </Link>
             <Link
-              href="/leads?view=table"
+              href="/manager/leads?view=table"
               className={cn(
                 'px-3 py-1.5 text-sm transition-colors border-l border-gray-200',
                 isTable ? 'bg-white text-gray-900 font-medium' : 'bg-gray-50 text-gray-500 hover:bg-white',
@@ -66,7 +66,7 @@ export default async function LeadsPage({
             </Link>
           </div>
           <Link
-            href="/leads/new"
+            href="/manager/leads/new"
             className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
           >
             <Plus size={15} />

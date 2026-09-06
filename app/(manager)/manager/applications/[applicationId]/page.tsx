@@ -98,7 +98,7 @@ export default function ApplicationDetailPage({
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-start gap-3">
-          <Link href="/applications" className="mt-1 text-gray-400 hover:text-gray-600 transition-colors">
+          <Link href="/manager/applications" className="mt-1 text-gray-400 hover:text-gray-600 transition-colors">
             <ArrowLeft size={18} />
           </Link>
           <div>

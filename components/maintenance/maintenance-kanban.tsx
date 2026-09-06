@@ -33,7 +33,7 @@ function KanbanCard({
   const isEmergency = req.priority === MaintenancePriority.EMERGENCY
 
   return (
-    <Link href={`/maintenance/${req.id}`}>
+    <Link href={`/manager/maintenance/${req.id}`}>
       <div
         className={cn(
           'group block rounded-xl bg-card ring-1 ring-foreground/10 p-3.5 hover:ring-primary/30 hover:shadow-md transition-all cursor-pointer',

@@ -75,14 +75,14 @@ export default function NewInspectionPage() {
 
   useEffect(() => {
     if (state.success) {
-      router.push('/inspections')
+      router.push('/manager/inspections')
     }
   }, [state.success, router])
 
   return (
     <div>
       <PageHeader title="Schedule Inspection">
-        <Link href="/inspections">
+        <Link href="/manager/inspections">
           <Button variant="outline">
             <ArrowLeft className="size-4" />
             Back

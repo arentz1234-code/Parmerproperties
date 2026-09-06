@@ -13,7 +13,7 @@ export function MaintenanceViewToggle({ view, tab }: Props) {
   return (
     <div className="flex items-center gap-1 rounded-lg border border-border p-1 bg-muted/40">
       <Link
-        href={`/maintenance?tab=${tab}&view=table`}
+        href={`/manager/maintenance?tab=${tab}&view=table`}
         className={cn(
           'flex items-center gap-1.5 px-2.5 py-1 rounded-md text-sm font-medium transition-colors',
           view === 'table'
@@ -25,7 +25,7 @@ export function MaintenanceViewToggle({ view, tab }: Props) {
         Table
       </Link>
       <Link
-        href={`/maintenance?tab=${tab}&view=kanban`}
+        href={`/manager/maintenance?tab=${tab}&view=kanban`}
         className={cn(
           'flex items-center gap-1.5 px-2.5 py-1 rounded-md text-sm font-medium transition-colors',
           view === 'kanban'
