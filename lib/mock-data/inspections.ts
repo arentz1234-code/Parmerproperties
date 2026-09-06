@@ -1,0 +1,111 @@
+import { Inspection, InspectionStatus } from '@/types'
+
+export let inspections: Inspection[] = [
+  // Move-in inspections for new Fall 2026 tenants
+  {
+    id: 'insp_001',
+    unitId: 'unit_rv1_101',
+    type: 'MOVE_IN',
+    status: InspectionStatus.COMPLETED,
+    scheduledAt: new Date('2026-08-01T09:00:00'),
+    completedAt: new Date('2026-08-01T10:15:00'),
+    rooms: {
+      livingRoom: { condition: 'Excellent', notes: 'Fresh paint, no marks' },
+      kitchen: { condition: 'Excellent', notes: 'All appliances working, no damage' },
+      masterBedroom: { condition: 'Good', notes: 'Minor scuff on baseboards — documented' },
+      bathroom1: { condition: 'Excellent', notes: 'Clean, caulk intact' },
+      bathroom2: { condition: 'Excellent', notes: 'Clean, fixtures tight' },
+    },
+    photos: [
+      '/inspections/insp_001/living_room.jpg',
+      '/inspections/insp_001/kitchen.jpg',
+      '/inspections/insp_001/master_bed.jpg',
+    ],
+    notes: 'Tenant Sarah Mitchell present. Unit in excellent condition. Tenant signed inspection report.',
+    conductedBy: 'user_manager_001',
+    createdAt: new Date('2026-08-01T09:00:00'),
+  },
+  {
+    id: 'insp_002',
+    unitId: 'unit_bab_b01',
+    type: 'MOVE_IN',
+    status: InspectionStatus.COMPLETED,
+    scheduledAt: new Date('2026-08-01T11:00:00'),
+    completedAt: new Date('2026-08-01T12:30:00'),
+    rooms: {
+      livingRoom: { condition: 'Excellent', notes: 'New carpet, freshly painted' },
+      kitchen: { condition: 'Excellent', notes: 'All appliances new — refrigerator, dishwasher, range' },
+      bedroom1: { condition: 'Excellent', notes: 'No issues' },
+      bedroom2: { condition: 'Excellent', notes: 'No issues' },
+      bedroom3: { condition: 'Good', notes: 'Window screen has small tear — documented' },
+      bedroom4: { condition: 'Excellent', notes: 'No issues' },
+      bedroom5: { condition: 'Excellent', notes: 'No issues' },
+      masterBath: { condition: 'Excellent', notes: 'New fixtures, no issues' },
+    },
+    photos: [
+      '/inspections/insp_002/living_room.jpg',
+      '/inspections/insp_002/kitchen.jpg',
+      '/inspections/insp_002/bedroom3_screen.jpg',
+    ],
+    notes: 'Tenant Marcus Williams present. Brownstone unit B-01 in excellent condition. Window screen in B3 to be replaced within 7 days.',
+    conductedBy: 'user_manager_001',
+    createdAt: new Date('2026-08-01T11:00:00'),
+  },
+  {
+    id: 'insp_003',
+    unitId: 'unit_jac_a01',
+    type: 'MOVE_IN',
+    status: InspectionStatus.COMPLETED,
+    scheduledAt: new Date('2026-08-02T10:00:00'),
+    completedAt: new Date('2026-08-02T11:00:00'),
+    rooms: {
+      livingRoom: { condition: 'Good', notes: 'Light scuff on east wall — noted' },
+      kitchen: { condition: 'Excellent', notes: 'All appliances functional' },
+      bedroom1: { condition: 'Excellent', notes: 'No issues' },
+      bedroom2: { condition: 'Excellent', notes: 'No issues' },
+      bedroom3: { condition: 'Excellent', notes: 'No issues' },
+      bathroom1: { condition: 'Excellent', notes: 'Clean' },
+      bathroom2: { condition: 'Good', notes: 'Grout slightly discolored near shower — pre-existing' },
+    },
+    photos: [
+      '/inspections/insp_003/living_room_wall.jpg',
+      '/inspections/insp_003/bathroom2_grout.jpg',
+    ],
+    notes: 'Tenant Hunter Patel present. Minor pre-existing conditions documented and initialed by tenant.',
+    conductedBy: 'user_manager_001',
+    createdAt: new Date('2026-08-02T10:00:00'),
+  },
+
+  // Periodic inspection
+  {
+    id: 'insp_004',
+    unitId: 'unit_rv1_201',
+    type: 'PERIODIC',
+    status: InspectionStatus.COMPLETED,
+    scheduledAt: new Date('2026-07-15T14:00:00'),
+    completedAt: new Date('2026-07-15T15:00:00'),
+    rooms: {
+      livingRoom: { condition: 'Good', notes: 'Furniture rearranged, no wall damage' },
+      kitchen: { condition: 'Good', notes: 'Range hood filter needs cleaning — reminded tenant' },
+      masterBedroom: { condition: 'Good', notes: 'No issues' },
+      bathrooms: { condition: 'Good', notes: 'Caulk around tub needs refresh — schedule for next quarter' },
+    },
+    photos: ['/inspections/insp_004/overview.jpg'],
+    notes: 'Routine 6-month check. Unit in good condition overall. No major concerns. Left reminder about range hood filter.',
+    conductedBy: 'user_manager_001',
+    createdAt: new Date('2026-07-01T09:00:00'),
+  },
+
+  // Scheduled move-out inspection (upcoming)
+  {
+    id: 'insp_005',
+    unitId: 'unit_rv1_102',
+    type: 'MOVE_OUT',
+    status: InspectionStatus.SCHEDULED,
+    scheduledAt: new Date('2026-09-30T10:00:00'),
+    rooms: {},
+    notes: 'Scheduled move-out inspection for Jordan Hayes (vacating end of Sept). Move-out checklist sent to tenant.',
+    conductedBy: 'user_manager_001',
+    createdAt: new Date('2026-08-15T10:00:00'),
+  },
+]

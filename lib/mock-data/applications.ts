@@ -1,0 +1,100 @@
+import { Application, ApplicationStatus } from '@/types'
+
+// 6 applications for Fall 2027 units across all properties
+
+export let applications: Application[] = [
+  // PENDING (2)
+  {
+    id: 'app_001',
+    unitId: 'unit_rv1_303',
+    applicantName: 'Brendan O\'Sullivan',
+    applicantEmail: 'bosullivan@auburn.edu',
+    applicantPhone: '(205) 555-4401',
+    income: 18000,
+    employerName: 'Auburn University (Graduate TA)',
+    creditScore: 710,
+    references: 'Dr. Susan Park, Department of Engineering, (334) 555-9001; Prior landlord: Tom Reed, (256) 555-9002',
+    status: ApplicationStatus.PENDING,
+    notes: 'Strong application — grad student with TA stipend + parental guarantor. Awaiting background check results.',
+    submittedAt: new Date('2026-09-01T10:22:00'),
+  },
+  {
+    id: 'app_002',
+    unitId: 'unit_bab_b06',
+    applicantName: 'Taylor Whitfield',
+    applicantEmail: 'twhitfield22@gmail.com',
+    applicantPhone: '(334) 555-4402',
+    income: 0,
+    employerName: 'Student (Auburn University)',
+    creditScore: 690,
+    references: 'Mike Whitfield (parent guarantor), (404) 555-9003; Coach Dan Reeves, (334) 555-9004',
+    status: ApplicationStatus.PENDING,
+    notes: 'Student applicant with parental guarantor. Missing one reference letter — following up.',
+    submittedAt: new Date('2026-09-03T14:45:00'),
+  },
+
+  // APPROVED (2)
+  {
+    id: 'app_003',
+    unitId: 'unit_rv1_103',
+    applicantName: 'Emily Nguyen',
+    applicantEmail: 'emily.nguyen@auburn.edu',
+    applicantPhone: '(334) 555-0205',
+    income: 15000,
+    employerName: 'Auburn University (Research Assistant)',
+    creditScore: 740,
+    references: 'Prof. James Lin, (334) 555-9005; Lisa Nguyen (parent), (334) 555-9006',
+    status: ApplicationStatus.APPROVED,
+    notes: 'Excellent credit, solid references. Returning Parmer resident — auto-approved. Lease pending signature.',
+    submittedAt: new Date('2026-08-10T09:00:00'),
+    decidedAt: new Date('2026-08-20T10:00:00'),
+  },
+  {
+    id: 'app_004',
+    unitId: 'unit_rv1_203',
+    applicantName: 'Marcus Williams',
+    applicantEmail: 'mwilliams@outlook.com',
+    applicantPhone: '(334) 555-0206',
+    income: 22000,
+    employerName: 'Tiger Athletics (Part-time)',
+    creditScore: 720,
+    references: 'Coach Jim Fallon, (334) 555-9007; Sandra Williams (parent), (251) 555-9008',
+    status: ApplicationStatus.APPROVED,
+    notes: 'Approved for Windsor unit for Fall 2027. Currently a resident — renewal/upgrade application.',
+    submittedAt: new Date('2026-08-15T11:30:00'),
+    decidedAt: new Date('2026-08-25T09:00:00'),
+  },
+
+  // DENIED (1)
+  {
+    id: 'app_005',
+    unitId: 'unit_bab_b07',
+    applicantName: 'Kyle Hendricks',
+    applicantEmail: 'kyleh99@yahoo.com',
+    applicantPhone: '(256) 555-4403',
+    income: 0,
+    creditScore: 540,
+    references: 'N/A',
+    status: ApplicationStatus.DENIED,
+    notes: 'Denied — insufficient credit score (below 580 threshold), no guarantor provided, prior eviction on record. Denial notice sent Sept 2.',
+    submittedAt: new Date('2026-08-25T16:00:00'),
+    decidedAt: new Date('2026-09-02T11:00:00'),
+  },
+
+  // WITHDRAWN (1)
+  {
+    id: 'app_006',
+    unitId: 'unit_jac_a04',
+    applicantName: 'Priya Kapoor',
+    applicantEmail: 'priya.kapoor@gmail.com',
+    applicantPhone: '(334) 555-4404',
+    income: 14000,
+    employerName: 'Auburn University (TA)',
+    creditScore: 695,
+    references: 'Dr. Amy Chen, (334) 555-9009',
+    status: ApplicationStatus.WITHDRAWN,
+    notes: 'Applicant withdrew — accepted housing at another property closer to campus. Was a strong candidate.',
+    submittedAt: new Date('2026-08-20T13:15:00'),
+    decidedAt: new Date('2026-08-28T10:00:00'),
+  },
+]
