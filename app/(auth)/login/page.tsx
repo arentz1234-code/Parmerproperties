@@ -1,9 +1,15 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useRef } from 'react'
 import { useFormStatus } from 'react-dom'
 import Image from 'next/image'
 import { loginAction } from './actions'
+
+const DEMO_ACCOUNTS = [
+  { label: 'Manager', email: 'manager@parmerproperties.com', color: 'bg-[#2D3561]' },
+  { label: 'Tenant', email: 'tenant1@demo.com', color: 'bg-emerald-500' },
+  { label: 'Owner', email: 'owner@demo.com', color: 'bg-amber-500' },
+]
 
 function SubmitButton() {
   const { pending } = useFormStatus()
@@ -30,6 +36,13 @@ function SubmitButton() {
 
 export default function LoginPage() {
   const [state, formAction] = useActionState(loginAction, { error: null })
+  const emailRef = useRef<HTMLInputElement>(null)
+  const passwordRef = useRef<HTMLInputElement>(null)
+
+  function fillAs(email: string) {
+    if (emailRef.current) emailRef.current.value = email
+    if (passwordRef.current) passwordRef.current.value = 'password123'
+  }
 
   return (
     <div className="w-full max-w-md">
@@ -81,6 +94,7 @@ export default function LoginPage() {
                 autoComplete="email"
                 required
                 placeholder="you@example.com"
+                ref={emailRef}
                 className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white focus:border-[#2D3561] focus:ring-2 focus:ring-[#2D3561]/20 outline-none transition-colors duration-150"
               />
             </div>
@@ -97,6 +111,7 @@ export default function LoginPage() {
                 autoComplete="current-password"
                 required
                 placeholder="••••••••"
+                ref={passwordRef}
                 className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 bg-gray-50 focus:bg-white focus:border-[#2D3561] focus:ring-2 focus:ring-[#2D3561]/20 outline-none transition-colors duration-150"
               />
             </div>
@@ -106,33 +121,21 @@ export default function LoginPage() {
             </div>
           </form>
 
-          {/* Demo credentials */}
+          {/* Quick login buttons */}
           <div className="mt-6 rounded-xl bg-gray-50 border border-gray-100 px-4 py-4">
-            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Demo credentials</p>
-            <div className="space-y-2.5">
-              <div className="flex items-center justify-between gap-2">
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#2D3561]" />
-                  <span className="text-xs font-medium text-gray-600">Manager</span>
-                </span>
-                <code className="text-xs text-gray-500 bg-white border border-gray-200 rounded px-2 py-0.5 font-mono">
-                  manager@parmerproperties.com
-                </code>
-              </div>
-              <div className="flex items-center justify-between gap-2">
-                <span className="inline-flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                  <span className="text-xs font-medium text-gray-600">Tenant</span>
-                </span>
-                <code className="text-xs text-gray-500 bg-white border border-gray-200 rounded px-2 py-0.5 font-mono">
-                  tenant1@demo.com
-                </code>
-              </div>
-              <div className="border-t border-gray-200 pt-2 mt-1">
-                <p className="text-xs text-gray-400">
-                  Password for all accounts: <code className="font-mono text-gray-500">password123</code>
-                </p>
-              </div>
+            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Quick login as</p>
+            <div className="flex gap-2">
+              {DEMO_ACCOUNTS.map(({ label, email, color }) => (
+                <button
+                  key={email}
+                  type="button"
+                  onClick={() => fillAs(email)}
+                  className="flex-1 flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 active:bg-gray-100 transition-colors duration-150"
+                >
+                  <span className={`w-2 h-2 rounded-full ${color} shrink-0`} />
+                  {label}
+                </button>
+              ))}
             </div>
           </div>
         </div>
