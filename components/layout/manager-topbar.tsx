@@ -74,7 +74,7 @@ const QUICK_ADD_ITEMS = [
   { label: 'New Property', icon: Building2, href: '/manager/properties/new' },
   { label: 'New Tenant', icon: Users, href: '/manager/tenants/new' },
   { label: 'New Maintenance Request', icon: AlertTriangle, href: '/manager/maintenance/new' },
-  { label: 'Record Payment', icon: DollarSign, href: '/manager/payments/new' },
+  { label: 'Record Payment', icon: DollarSign, href: '/manager/payments/record' },
 ]
 
 export function ManagerTopbar() {

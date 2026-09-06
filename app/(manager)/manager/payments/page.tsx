@@ -74,6 +74,9 @@ export default async function PaymentsPage() {
         title="Payments & Rent Roll"
         description="September 2026 — monthly overview"
       >
+        <Link href="/manager/payments/history" className={buttonVariants({ variant: 'outline' })}>
+          Payment History
+        </Link>
         <GenerateChargesButton />
         <Link href="/manager/payments/record" className={buttonVariants({})}>
           <CreditCard size={14} />
