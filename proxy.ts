@@ -1,15 +1,16 @@
+import NextAuth from 'next-auth'
+import { authConfig } from './auth.config'
 import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-import { getToken } from 'next-auth/jwt'
 
-export async function proxy(request: NextRequest) {
+const { auth } = NextAuth(authConfig)
+
+export const proxy = auth((request: any) => {
   const { pathname } = request.nextUrl
 
   // Public routes — always allow
   if (
     pathname.startsWith('/api/auth') ||
     pathname.startsWith('/_next') ||
-    pathname.startsWith('/public') ||
     pathname === '/login' ||
     pathname.startsWith('/apply') ||
     pathname === '/favicon.ico' ||
@@ -18,19 +19,16 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next()
   }
 
-  const token = await getToken({
-    req: request,
-    secret: process.env.NEXTAUTH_SECRET,
-  })
+  const session = request.auth
 
   // Not logged in → redirect to login
-  if (!token) {
+  if (!session) {
     const loginUrl = new URL('/login', request.url)
     loginUrl.searchParams.set('callbackUrl', pathname)
     return NextResponse.redirect(loginUrl)
   }
 
-  const role = token.role as string | undefined
+  const role = (session.user as any)?.role
 
   // Role-based route guards
   if (pathname.startsWith('/manager') && role !== 'MANAGER') {
@@ -42,7 +40,7 @@ export async function proxy(request: NextRequest) {
   }
 
   return NextResponse.next()
-}
+})
 
 export const config = {
   matcher: ['/((?!_next/static|_next/image|favicon.ico|logo.png|public).*)'],
